@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Web\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(SiteController::class)->prefix('web')->group(function () {
-    Route::get('/contato', 'index');
+Route::controller(SupportController::class)->prefix('forum')->group(function () {
+    Route::get('/', 'index')->name("supports.index");
 });
